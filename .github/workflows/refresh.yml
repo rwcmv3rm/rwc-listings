@@ -2,7 +2,7 @@ name: Refresh RWC Ad Directory
 
 on:
   schedule:
-    - cron: '*/15 * * * *'   # every 15 minutes, 24/7
+    - cron: '*/5 * * * *'    # every 5 minutes, 24/7
   workflow_dispatch:           # manual trigger button in GitHub UI
 
 jobs:
@@ -154,7 +154,7 @@ jobs:
           <html lang="en">
           <head>
           <meta charset="UTF-8">
-          <meta http-equiv="refresh" content="900">
+          <meta http-equiv="refresh" content="300">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
           <title>RWC Active Listings</title>
           <style>
