@@ -24,6 +24,8 @@ jobs:
         run: pip install requests
 
       - name: Fetch sheet and build HTML
+        env:
+          GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
         run: |
           python3 << 'PYEOF'
           import requests, json, re, os
@@ -31,7 +33,7 @@ jobs:
           from collections import defaultdict
 
           SHEET_ID = "1dtWpORf_cVsIcRxNY8Bwg9LXemoCYdXLiL0EKF7VvIQ"
-          API_KEY  = "AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY"  # public sheets read-only key
+          API_KEY  = os.environ["GOOGLE_API_KEY"]
 
           # Fetch the sheet as CSV via public URL
           url = f"https://docs.google.com/spreadsheets/d/{SHEET_ID}/export?format=csv&gid=932558371"
